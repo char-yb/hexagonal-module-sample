@@ -22,4 +22,23 @@
 3. IDE는 JetBrains의 [IntelliJ Community 버전](https://www.jetbrains.com/help/idea/installation-guide.html)을 권장합니다. Ultimate도 무방합니다.
 4. `./gradlew check` 를 통해 검증이 가능합니다.
 5. `./gradlew bootRun` 을 실행하시면 8080 port를 이용해 서버가 기동됩니다. 
-6. [swagger-ui](http://localhost:8080/swagger-ui.html) 를 통해 api 호출을 확인해보실 수 있습니다.  
+6. [swagger-ui](http://localhost:8080/swagger-ui.html) 를 통해 api 호출을 확인해보실 수 있습니다.
+
+---
+
+## 📚 문서
+
+### 신규 입사자를 위한 가이드
+
+- **[Quick Start Guide](./docs/QUICK_START.md)** - 30분 만에 시작하기, 첫 코드 작성하기
+- **[Architecture Guide](./docs/ARCHITECTURE.md)** - 아키텍처 상세 설명, 장단점, FAQ
+
+### 주요 내용
+
+- **헥사고날 아키텍처** (Hexagonal Architecture) 적용
+- **도메인별 모듈 분리** (corehr, payroll)
+- **명시적 의존성 관리** (AutoConfiguration)
+- **독립적인 테스트** 가능
+- **기술 스택 교체** 용이
+
+---
