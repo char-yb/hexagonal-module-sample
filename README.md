@@ -32,6 +32,8 @@
 
 - **[Quick Start Guide](./docs/QUICK_START.md)** - 30분 만에 시작하기, 첫 코드 작성하기
 - **[Architecture Guide](./docs/ARCHITECTURE.md)** - 아키텍처 상세 설명, 장단점, FAQ
+- **[Improvements Guide](./docs/IMPROVEMENTS.md)** - 기본 개선 사항 및 마이그레이션 가이드
+- **[Advanced Improvements](./docs/ADVANCED_IMPROVEMENTS.md)** - 엔터프라이즈급 고급 개선사항 (이벤트, 관측성, 캐싱 등)
 
 ### 주요 내용
 
@@ -40,5 +42,31 @@
 - **명시적 의존성 관리** (AutoConfiguration)
 - **독립적인 테스트** 가능
 - **기술 스택 교체** 용이
+- **ArchUnit 기반 아키텍처 검증**
+- **공통 모듈을 통한 순환 참조 방지**
+
+### 개발자 도구
+
+- **새 도메인 생성**: `./scripts/create-domain.sh <domain-name>`
+  - 8개 모듈 자동 생성 (model, exception, infrastructure, service, repository-jdbc, api, schema, application-api)
+  - settings.gradle.kts 자동 업데이트
+  - 의존성 자동 설정
+- **아키텍처 검증**: `./gradlew :arch-test:test`
+- **전체 빌드 및 테스트**: `./gradlew check` (ArchUnit 포함)
+
+### 아키텍처 검증
+
+프로젝트는 ArchUnit을 사용하여 아키텍처 규칙을 자동으로 검증합니다:
+
+```bash
+# ArchUnit 테스트 실행
+./gradlew :arch-test:test
+
+# 검증 항목:
+# - 레이어 간 의존성 규칙 (Model, Service, Infrastructure, Repository, API)
+# - 도메인 간 순환 참조 방지
+# - 네이밍 규칙 (Repository, Service, Controller, Exception)
+# - Common 모듈 사용 규칙
+```
 
 ---

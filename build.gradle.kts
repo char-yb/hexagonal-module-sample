@@ -5,8 +5,10 @@
 import com.linecorp.support.project.multi.recipe.configureByTypeHaving
 import com.linecorp.support.project.multi.recipe.configureByTypePrefix
 import io.gitlab.arturbosch.detekt.DetektPlugin
+import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
 import org.springframework.boot.gradle.plugin.SpringBootPlugin
@@ -37,7 +39,13 @@ configureByTypePrefix("kotlin") {
     apply<KtlintPlugin>()
     apply<DetektPlugin>()
 
+    configure<JavaPluginExtension> {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
     configure<KotlinJvmProjectExtension> {
+        jvmToolchain(21)
         compilerOptions {
             freeCompilerArgs =
                 listOf(

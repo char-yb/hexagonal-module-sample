@@ -22,7 +22,20 @@ include(":payroll:repository-jdbc")
 include(":payroll:schema")
 include(":payroll:service")
 
+
+include(":enterprise:api")
+include(":enterprise:application-api")
+include(":enterprise:exception")
+include(":enterprise:infrastructure")
+include(":enterprise:model")
+include(":enterprise:repository-jdbc")
+include(":enterprise:schema")
+include(":enterprise:service")
+
 include(":application-api")
+include(":arch-test")
+include(":common:exception")
+include(":common:model")
 
 pluginManagement {
     buildscript {
